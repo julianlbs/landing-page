@@ -1,8 +1,15 @@
 import type { NextPage } from "next";
+import Layout from "../components/layout/layout";
 // import Head from "next/head";
 
 const Home: NextPage = () => {
-	return <header className="bg-red-500">HELLO WORLD!</header>;
+	return (
+		<Layout>
+			<main>
+				<div>Hello World!</div>
+			</main>
+		</Layout>
+	);
 };
 
 export default Home;
