@@ -2,7 +2,7 @@ import Footer from "./footer";
 import CustomHeader from "./header";
 
 interface Props {
-	children: JSX.Element;
+	children: React.ReactNode;
 }
 
 export default function Layout({ children }: Props) {
