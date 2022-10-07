@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Response } from "node-fetch";
 import { TypeAnimation } from "react-type-animation";
 import Layout from "../../components/layout/layout";
 import { Container } from "../../components/utils";
