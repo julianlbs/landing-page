@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Showcase from "./showcase";
+import Showcase from "./main/showcase";
 
 export default function HomePage() {
 	return (
