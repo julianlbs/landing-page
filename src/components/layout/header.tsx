@@ -17,7 +17,7 @@ export default function CustomHeader() {
 	}
 
 	return (
-		<header className="flex justify-between items-center py-4 px-8 shadow w-full sm:absolute md:static">
+		<header className="flex justify-between items-center py-4 px-8 shadow w-full bg-slate-50 dark:bg-gray-800 sm:absolute md:static">
 			<h1 className="text-2xl pointer-events-none select-none">julian.dev</h1>
 			<div className="flex items-center">
 				<span
