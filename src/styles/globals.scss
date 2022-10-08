@@ -11,22 +11,49 @@ body {
 }
 
 h1 {
-	font-size: 48px;
+	font-size: 40px;
 }
 
 h2 {
-	font-size: 36px;
+	font-size: 32px;
 }
 
 h3 {
-	font-size: 28px;
+	font-size: 24px;
 }
 
 h4 {
-	font-size: 22px;
+	font-size: 18px;
 }
 
 h5,
 h6 {
-	font-size: 18px;
+	font-size: 16px;
+}
+
+@media (min-width: 640) {
+	body {
+		font-size: 12px;
+	}
+
+	h1 {
+		font-size: 48px;
+	}
+
+	h2 {
+		font-size: 36px;
+	}
+
+	h3 {
+		font-size: 28px;
+	}
+
+	h4 {
+		font-size: 22px;
+	}
+
+	h5,
+	h6 {
+		font-size: 18px;
+	}
 }
