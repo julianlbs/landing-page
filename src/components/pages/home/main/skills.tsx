@@ -7,7 +7,7 @@ import { Container } from "../../../utils";
 
 const Skills = () => {
 	return (
-		<div className="bg-slate-800">
+		<div className="dark:bg-slate-800 bg-slate-200">
 			<Container>
 				<h2 className="text-center mb-8">My Skills</h2>
 				<div className="flex flex-wrap flex-row justify-between items-center select-none">
