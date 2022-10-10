@@ -1,7 +1,24 @@
-import React from "react";
+import React, { HtmlHTMLAttributes } from "react";
 
-export const Container: React.FC<{ children: React.ReactNode }> = ({
+export const Container = ({
 	children,
-}) => {
-	return <div className="py-4 px-8">{children}</div>;
+	className,
+}: React.ComponentProps<"div">) => {
+	return (
+		<div
+			className={className}
+			style={
+				!className
+					? {
+							paddingTop: "1rem",
+							paddingBottom: "1rem",
+							paddingLeft: "2rem",
+							paddingRight: "2rem",
+					  }
+					: undefined
+			}
+		>
+			{children}
+		</div>
+	);
 };
