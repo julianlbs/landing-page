@@ -52,12 +52,14 @@ const Intro = () => {
 						</h3>
 						<p className="mt-8">
 							Increase your{" "}
-							<span className="font-bold text-green-400">reach</span> and{" "}
+							<span className="font-bold text-primary">reach</span> and{" "}
 							<span className="font-bold text-red-400">boost</span> your
 							business.
 						</p>
-						<div className="mt-2">
-							<button className="btn btn-outline">Hire me</button>
+						<div className="mt-4">
+							<button className="btn btn-primary mr-2">Hire me</button>
+							<button className="btn btn-secondary mx-2">Portfolio</button>
+							<button className="btn btn-secondary mx-2">About me</button>
 							{/* <Button>Hire me</Button> */}
 						</div>
 					</div>
