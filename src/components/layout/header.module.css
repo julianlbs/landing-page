@@ -1,0 +1,10 @@
+.hideMenu {
+  position: absolute;
+  right: -9999px
+}
+
+
+.showMenu {
+  position: absolute;
+  right: 50%
+}
