@@ -1,5 +1,6 @@
 import Head from "next/head";
-import Showcase from "./showcase/showcase";
+import Portfolio from "./portfolio";
+import Showcase from "./showcase";
 
 export default function HomePage() {
 	return (
@@ -9,6 +10,7 @@ export default function HomePage() {
 			</Head>
 			<main>
 				<Showcase />
+				<Portfolio />
 			</main>
 		</>
 	);
