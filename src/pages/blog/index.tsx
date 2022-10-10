@@ -25,6 +25,7 @@ export default function BlogHomePage() {
 									1000,
 									"Loading.....",
 								]}
+								repeat={Infinity}
 							/>
 						)}
 						{!restaurants.isLoading &&
