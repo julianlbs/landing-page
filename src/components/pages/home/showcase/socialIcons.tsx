@@ -9,7 +9,7 @@ const socialIcons = () => {
 		<IconContext.Provider
 			value={{ className: "text-3xl md:mx-4 lg:mx-0 lg:my-4" }}
 		>
-			<div className="flex flex-row justify-evenly md:justify-center items-center py-8 lg:py-0 lg:flex-col">
+			<div className="flex flex-row justify-evenly md:justify-center items-center mt-14 lg:my-0 lg:flex-col">
 				<a href="https://github.com/julianlbs" target="_blank" rel="noreferrer">
 					<AiFillGithub />
 				</a>
