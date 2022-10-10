@@ -20,7 +20,7 @@ export default function Layout({ children }: Props) {
 	}
 
 	return (
-		<div data-theme={theme === "dark" ? "night" : "light"}>
+		<div data-theme={theme === "dark" ? "night" : "winter"}>
 			<CustomHeader />
 			{children}
 			<Footer />
