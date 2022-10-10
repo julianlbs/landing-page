@@ -57,7 +57,8 @@ const Intro = () => {
 							business.
 						</p>
 						<div className="mt-2">
-							<Button>Hire me</Button>
+							<button className="btn btn-outline">Hire me</button>
+							{/* <Button>Hire me</Button> */}
 						</div>
 					</div>
 				</div>
