@@ -60,11 +60,12 @@ const Intro = () => {
 							<button className="btn btn-primary mb-4 md:mr-2 md:mb-0">
 								Hire me
 							</button>
-							<button className="btn btn-secondary mb-4 md:mr-2 md:mb-0">
-								Portfolio
-							</button>
+							<a href="#portfolio" className="">
+								<button className="btn btn-secondary mb-4 md:mr-2 md:mb-0">
+									Portfolio
+								</button>
+							</a>
 							<button className="btn btn-secondary md:mr-2">About me</button>
-							{/* <Button>Hire me</Button> */}
 						</div>
 					</div>
 				</div>
