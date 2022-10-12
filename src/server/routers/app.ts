@@ -1,14 +1,14 @@
 import { initTRPC } from '@trpc/server';
 import { z } from 'zod';
-import { StrapiResponse } from '../../core/strapiResponse';
+import { Articles } from '../../core/blogTypes';
+import { fetchBlogAPI } from '../../lib/blog/api';
 
 export const t = initTRPC.create();
 export const appRouter = t.router({
-  restaurantList: t.procedure
+  articles: t.procedure
     .query(async () => {
-      const response = await fetch("http://localhost:1337/api/restaurants");
-      const responseData: StrapiResponse = await response.json();
-      return responseData.data;
+      const response: Articles = await fetchBlogAPI("/articles", { populate: ["image", "category", "author"] });
+      return response.data;
     }),
 });
 
