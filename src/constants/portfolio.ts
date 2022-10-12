@@ -1,6 +1,6 @@
 export type Portfolio = typeof PORTFOLIO;
 
 export const PORTFOLIO = [
-  { id: 2, name: "Soil App", images: [], description: { about: "React Native App", platform: "Android/iOS", language: "TypeScript", Frameworks: "React Native" }, },
-  { id: 1, name: "LTClean", images: ["https://i.ibb.co/rHzfCRQ/LTClean-1.png", "https://i.ibb.co/qMnnsK9/LTClean-2.png", "https://i.ibb.co/kJhpkkz/LTClean-3.png", "https://i.ibb.co/z2dL3Mt/LTClean-4.png"], description: { about: "React Landing Page", platform: "Web", language: "JavaScript", Frameworks: "BootStrap, React" } },
+  { id: 2, name: "Soil App", images: { phone: true, paths: ["https://i.ibb.co/jwrZMDt/Screenshot-2022-10-11-16-16-05-070-host-exp-exponent.jpg", "https://i.ibb.co/QbmWxT9/Screenshot-2022-10-11-16-16-34-087-host-exp-exponent.jpg", "https://i.ibb.co/4NCMXYF/Screenshot-2022-10-11-16-16-47-759-host-exp-exponent.jpg", "https://i.ibb.co/Dt1QbPJ/Screenshot-2022-10-11-16-16-38-714-host-exp-exponent.jpg", "https://i.ibb.co/pd1KFc8/Screenshot-2022-10-11-16-17-31-805-host-exp-exponent.jpg"] }, description: { about: "React Native App", platform: "Android/iOS", language: "TypeScript", Frameworks: "React Native" }, },
+  { id: 1, name: "LTClean", images: { phone: false, paths: ["https://i.ibb.co/rHzfCRQ/LTClean-1.png", "https://i.ibb.co/qMnnsK9/LTClean-2.png", "https://i.ibb.co/kJhpkkz/LTClean-3.png", "https://i.ibb.co/z2dL3Mt/LTClean-4.png"] }, description: { about: "React Landing Page", platform: "Web", language: "JavaScript", Frameworks: "BootStrap, React" } },
 ];

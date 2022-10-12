@@ -28,7 +28,10 @@ export default function Portfolio() {
 						</div>
 						<div className="flex-[3] card bg-base-300 rounded-box">
 							<div className="pt-4">
-								<Carousel images={currentItem.images} />
+								<Carousel
+									images={currentItem.images.paths}
+									phone={currentItem.images.phone}
+								/>
 							</div>
 							<div>
 								<Container className="py-4">

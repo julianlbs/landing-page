@@ -4,9 +4,10 @@ interface CarouselProps extends React.ComponentProps<"div"> {
 	images: string[];
 	height?: string | number;
 	width?: string | number;
+	phone?: boolean;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ images }) => {
+const Carousel: React.FC<CarouselProps> = ({ images, phone }) => {
 	return (
 		<div className="carousel w-full">
 			{images.map((image, i) => (
@@ -15,13 +16,12 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 					id={`slide${i + 1}`}
 					className="carousel-item relative w-full"
 				>
-					{/* <img src={image} width="100%" /> */}
 					<div style={{ height: "313px", width: "640px" }}>
 						<Image
 							src={image}
 							layout="fill"
 							alt="Portfolio image"
-							objectFit="contain"
+							objectFit={phone ? "scale-down" : "contain"}
 						/>
 					</div>
 					<div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
