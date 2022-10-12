@@ -6,7 +6,7 @@ import qs from "qs";
  * @returns {string} Full Strapi URL
  */
 export function getStrapiURL(path = "") {
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
+  return `${process.env.BLOG_API_URL || "http://localhost:1337"
     }${path}`;
 }
 
