@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import Image from "next/image";
+import Link from "next/link";
 import { Article } from "../../../core/blogTypes";
 import { Container } from "../../utils";
 
@@ -24,7 +25,11 @@ export default function PostCard({ className, post }: Props) {
 				/>
 			</div> */}
 			<div className="flex flex-col gap-2">
-				<h3 className="text-primary">{post.attributes.title}</h3>
+				<Link href={`blog/${post.attributes.slug}`}>
+					<a>
+						<h3 className="text-primary">{post.attributes.title}</h3>
+					</a>
+				</Link>
 				<span className="text-sm mb-4 text-slate-400">
 					{format(new Date(post.attributes.publishedAt), "PPP")}
 				</span>
