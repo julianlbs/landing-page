@@ -2,7 +2,7 @@ import Head from "next/head";
 import { createContext } from "react";
 import { TypeAnimation } from "react-type-animation";
 import Layout from "../../components/layout/layout";
-import PostCard from "../../components/pages/blog/postCard";
+import ArticleCard from "../../components/pages/blog/ArticleCard";
 import { Container } from "../../components/utils";
 import { trpc } from "../../utils/trpc";
 
@@ -50,8 +50,8 @@ export default function BlogHomePage({ pageProps }: Props) {
 							)}
 							{dataLoaded && (
 								<div className="flex flex-wrap justify-evenly items-center gap-4">
-									{articles.data?.map((a, i) => (
-										<PostCard key={a.id} post={a} />
+									{articles.data?.map((article, i) => (
+										<ArticleCard key={article.id} article={article} />
 									))}
 								</div>
 							)}
