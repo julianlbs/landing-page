@@ -13,7 +13,7 @@ interface Props {
 export const StrapiContext = createContext({});
 
 export default function BlogHomePage({ pageProps }: Props) {
-	const articles = trpc.articles.useQuery();
+	const articles = trpc.getArticles.useQuery();
 
 	const dataLoaded = !articles.isLoading && articles.data;
 	return (
@@ -24,8 +24,8 @@ export default function BlogHomePage({ pageProps }: Props) {
 			</Head>
 			<Layout>
 				<main>
-					<Container>
-						<div className="flex justify-between items-center">
+					<Container className="flex flex-col mx-auto items-center max-w-5xl">
+						<div className="flex justify-between items-center w-full">
 							<span>Categories</span>
 							<div>Sort by</div>
 						</div>
