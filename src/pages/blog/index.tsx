@@ -16,6 +16,7 @@ export default function BlogHomePage({ pageProps }: Props) {
 	const articles = trpc.getArticles.useQuery();
 
 	const dataLoaded = !articles.isLoading && articles.data;
+	const noData = !articles.isLoading && !articles.data;
 	return (
 		<>
 			<Head>
@@ -53,6 +54,11 @@ export default function BlogHomePage({ pageProps }: Props) {
 									{articles.data?.map((article, i) => (
 										<ArticleCard key={article.id} article={article} />
 									))}
+								</div>
+							)}
+							{noData && (
+								<div>
+									<h3 className="text-primary">No articles to show</h3>
 								</div>
 							)}
 						</Container>
