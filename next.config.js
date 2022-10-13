@@ -4,7 +4,12 @@ const nextConfig = {
 	swcMinify: true,
 	images: {
 		loader: "default",
-		domains: ["i.ibb.co"],
+		domains: [
+			"localhost",
+			"julianlbs-blog.up.railway.app",
+			"i.ibb.co",
+			"res.cloudinary.com",
+		],
 	},
 };
 
