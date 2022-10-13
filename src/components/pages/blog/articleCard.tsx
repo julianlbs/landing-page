@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import { Article } from "../../../core/blogTypes";
+import { getBlogMedia } from "../../../lib/blog/media";
 import { Container } from "../../utils";
 
 interface Props extends React.ComponentProps<"div"> {
@@ -9,10 +10,13 @@ interface Props extends React.ComponentProps<"div"> {
 }
 
 export default function ArticleCard({ className, article }: Props) {
+	const authorPic =
+		article.attributes.author?.data.attributes.picture?.data.attributes.formats
+			.thumbnail.url;
+
 	const content = article.attributes.content.endsWith("...")
 		? article.attributes.content.substring(0, 120)
 		: article.attributes.content.substring(0, 120) + "...";
-
 	return (
 		<div
 			className={`${className} w-80 md:w-96 h-[28rem] md:h-[24rem] border border-primary border-opacity-20 rounded flex flex-col`}
@@ -22,9 +26,7 @@ export default function ArticleCard({ className, article }: Props) {
 					<Link href={`blog/${article.attributes.slug}`}>
 						<a>
 							<Image
-								src={
-									article.attributes.image.data.attributes.formats.medium.url
-								}
+								src={getBlogMedia(article.attributes.image)}
 								alt={article.attributes.image.data.attributes.caption}
 								height={96}
 								width={384}
@@ -51,9 +53,22 @@ export default function ArticleCard({ className, article }: Props) {
 					</span>
 				</div>
 				<div className="absolute bottom-4 left-4">
-					<span className="text-secondary">
-						by {article.attributes.author?.data.attributes.name}
-					</span>
+					<div className="flex gap-2 items-center">
+						<div className="w-16 h-16 rounded-full overflow-hidden">
+							{authorPic && (
+								<Image
+									src={authorPic}
+									height={80}
+									width={80}
+									alt="Author Picture"
+									objectFit="cover"
+								/>
+							)}
+						</div>
+						<span className="text-secondary">
+							by {article.attributes.author?.data.attributes.name}
+						</span>
+					</div>
 				</div>
 			</Container>
 		</div>
