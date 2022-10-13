@@ -21,8 +21,6 @@ export default function Post({ article }: Props) {
 		article.attributes.author?.data.attributes.picture?.data.attributes.formats
 			.thumbnail.url;
 
-	console.log(authorPic);
-
 	if (!article) return null;
 	return (
 		<Layout className="relative">
@@ -74,7 +72,6 @@ export default function Post({ article }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	console.log("slug");
 	const articles: Articles = await fetchBlogAPI("/articles", {
 		fields: ["slug"],
 	});

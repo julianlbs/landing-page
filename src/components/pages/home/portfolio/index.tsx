@@ -11,7 +11,6 @@ export default function Portfolio() {
 	const [currentItem, setCurrentItem] = useState(PORTFOLIO[0]);
 
 	const handleSelectItem = (id: number) => {
-		console.log("click", `id: ${id}`);
 		setCurrentItem(PORTFOLIO.find((p) => p.id === id) || PORTFOLIO[0]);
 	};
 
