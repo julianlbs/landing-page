@@ -1,22 +1,20 @@
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { createContext } from "react";
 import { TypeAnimation } from "react-type-animation";
 import Layout from "../../components/layout/layout";
 import ArticleCard from "../../components/pages/blog/articleCard";
 import { Container } from "../../components/utils";
+import { fetchBlogAPI } from "../../lib/blog/api";
 import { trpc } from "../../utils/trpc";
-
-interface Props {
-	pageProps: { global: any };
+import { Article, Articles } from "../../core/blogTypes";
+interface Props extends React.ComponentPropsWithRef<"div"> {
+	articles: Articles;
 }
 
-export const StrapiContext = createContext({});
-
-export default function BlogHomePage({ pageProps }: Props) {
-	const articles = trpc.getArticles.useQuery();
-
-	const dataLoaded = !articles.isLoading && articles.data;
-	const noData = !articles.isLoading && !articles.data;
+export default function BlogHomePage({
+	articles,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
 	return (
 		<>
 			<Head>
@@ -36,7 +34,7 @@ export default function BlogHomePage({ pageProps }: Props) {
 						></div>
 
 						<Container>
-							{articles.isLoading && (
+							{!articles && (
 								<TypeAnimation
 									sequence={[
 										"Loading.",
@@ -49,16 +47,11 @@ export default function BlogHomePage({ pageProps }: Props) {
 									repeat={Infinity}
 								/>
 							)}
-							{dataLoaded && (
+							{articles && (
 								<div className="flex flex-wrap justify-evenly items-center gap-4">
-									{articles.data?.map((article, i) => (
+									{articles.map((article, i) => (
 										<ArticleCard key={article.id} article={article} />
 									))}
-								</div>
-							)}
-							{noData && (
-								<div>
-									<h3 className="text-primary">No articles to show</h3>
 								</div>
 							)}
 						</Container>
@@ -68,3 +61,13 @@ export default function BlogHomePage({ pageProps }: Props) {
 		</>
 	);
 }
+
+export const getStaticProps = async () => {
+	const response = await fetchBlogAPI("/articles", {
+		populate: ["image", "category", "author.picture"],
+	});
+	const articles: Article[] = response.data;
+	console.log(articles);
+
+	return { props: { articles: articles }, revalidate: 1 };
+};
