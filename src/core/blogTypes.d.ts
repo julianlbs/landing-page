@@ -42,6 +42,26 @@ export interface Articles {
   meta: StrapiMeta;
 }
 
+export interface FormatProps {
+  name: string,
+  hash: string;
+  ext: string,
+  mime: string,
+  path?: string | null,
+  previewUrl?: string | null;
+  width: number,
+  height: number,
+  size: number,
+  url: string;
+}
+
+export interface FormatsType {
+  thumbnail: FormatProps,
+  medium: FormatProps,
+  small: FormatProps,
+  large: FormatProps,
+}
+
 export interface Image {
   data: {
     id: number,
@@ -51,7 +71,7 @@ export interface Image {
       caption: string,
       width: number,
       height: number,
-      formats: any,
+      formats: FormatsType,
       hash: string,
       ext: string,
       mime: string,
@@ -72,6 +92,7 @@ export interface Author {
       email: string,
       createdAt: string,
       updatedAt: string;
+      picture?: Image;
     };
   };
 }
