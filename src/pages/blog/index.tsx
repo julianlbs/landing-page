@@ -2,7 +2,7 @@ import Head from "next/head";
 import { createContext } from "react";
 import { TypeAnimation } from "react-type-animation";
 import Layout from "../../components/layout/layout";
-import ArticleCard from "../../components/pages/blog/ArticleCard";
+import ArticleCard from "../../components/pages/blog/articleCard";
 import { Container } from "../../components/utils";
 import { trpc } from "../../utils/trpc";
 
