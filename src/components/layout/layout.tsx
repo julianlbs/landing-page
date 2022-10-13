@@ -1,13 +1,12 @@
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "./footer";
 import CustomHeader from "./header";
 
-interface Props {
-	children: React.ReactNode;
-}
-
-export default function Layout({ children }: Props) {
+export default function Layout({
+	children,
+	className,
+}: React.ComponentPropsWithRef<"div">) {
 	const [mounted, setMounted] = useState(false);
 	const { theme, setTheme } = useTheme();
 
@@ -20,7 +19,10 @@ export default function Layout({ children }: Props) {
 	}
 
 	return (
-		<div data-theme={theme === "dark" ? "night" : "winter"}>
+		<div
+			className={className}
+			data-theme={theme === "dark" ? "night" : "winter"}
+		>
 			<CustomHeader />
 			{children}
 			<Footer />
