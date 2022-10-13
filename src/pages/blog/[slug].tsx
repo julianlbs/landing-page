@@ -8,30 +8,65 @@ import { fetchBlogAPI } from "../../lib/blog/api";
 import { Container } from "../../components/utils";
 import rehypeRaw from "rehype-raw";
 
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import Link from "next/link";
+import Image from "next/image";
+
 interface Props extends React.ComponentPropsWithRef<"div"> {
-	post: Article;
+	article: Article;
 }
 
-export default function Post({ post }: Props) {
-	if (!post) return null;
+export default function Post({ article }: Props) {
+	const authorPic =
+		article.attributes.author?.data.attributes.picture?.data.attributes.formats
+			.thumbnail.url;
+
+	console.log(authorPic);
+
+	if (!article) return null;
 	return (
-		<Layout>
+		<Layout className="relative">
+			<div className="absolute top-20 left-8">
+				<Link href="/blog">
+					<a className="flex gap-2 items-center">
+						<BsFillArrowLeftCircleFill size={32} />
+						<span>Go back</span>
+					</a>
+				</Link>
+			</div>
 			<article>
 				<Container className="max-w-4xl mx-auto">
-					<h2 className="text-primary">{post.attributes.title}</h2>
-					<span>{format(new Date(post.attributes.publishedAt), "PPP")}</span>
+					<h2 className="text-primary">{article.attributes.title}</h2>
+					<span className="block mb-4">
+						{format(new Date(article.attributes.publishedAt), "PPP")}
+					</span>
 					<ReactMarkdown
 						className="flex flex-col gap-4"
 						rehypePlugins={[rehypeRaw]}
 						components={{
-							h1: "h2",
+							h1: "h3",
+							h2: "h4",
+							h4: "h5",
 						}}
 					>
-						{post.attributes.content}
+						{article.attributes.content}
 					</ReactMarkdown>
-					<span className="text-secondary">
-						by {post.attributes.author?.data.attributes.name}
-					</span>
+					<div className="flex gap-2 items-center mt-8">
+						<div className="w-16 h-16 rounded-full overflow-hidden">
+							{authorPic && (
+								<Image
+									src={authorPic}
+									height={80}
+									width={80}
+									alt="Author Picture"
+									objectFit="cover"
+								/>
+							)}
+						</div>
+						<span className="text-secondary">
+							by {article.attributes.author?.data.attributes.name}
+						</span>
+					</div>
 				</Container>
 			</article>
 		</Layout>
@@ -58,9 +93,9 @@ export const getStaticProps = async ({
 	const slug = params.slug! as string;
 	const response = await fetchBlogAPI("/articles", {
 		filters: { slug: slug },
-		populate: ["image", "category", "author"],
+		populate: ["image", "category", "author.picture"],
 	});
 	const article: Article = response.data[0];
 
-	return { props: { post: article }, revalidate: 1 };
+	return { props: { article: article }, revalidate: 1 };
 };
