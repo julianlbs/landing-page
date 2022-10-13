@@ -8,7 +8,7 @@ export const t = initTRPC.create();
 export const appRouter = t.router({
   getArticles: t.procedure
     .query(async () => {
-      const response: Articles = await fetchBlogAPI("/articles", { populate: ["image", "category", "author"] });
+      const response: Articles = await fetchBlogAPI("/articles", { populate: ["*"] });
       return response.data;
     }),
 
