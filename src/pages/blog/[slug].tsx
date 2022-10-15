@@ -107,7 +107,6 @@ export const getStaticProps = async ({
 		populate: ["image", "category", "author.picture"],
 	});
 	const article: Article = response.data[0];
-	console.log("response: ", article);
 
 	return { props: { article: article }, revalidate: 1 };
 };
