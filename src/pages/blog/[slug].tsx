@@ -46,7 +46,9 @@ export default function Post({ article }: Props) {
 							/>
 						)}
 					</div>
-					<h2 className="text-primary">{article.attributes.title}</h2>
+					<h2 className="text-primary capitalize">
+						{article.attributes.title}
+					</h2>
 					<span className="block mb-4">
 						{format(new Date(article.attributes.publishedAt), "PPP")}
 					</span>
@@ -73,7 +75,7 @@ export default function Post({ article }: Props) {
 								/>
 							)}
 						</div>
-						<span className="text-secondary">
+						<span className="text-secondary capitalize">
 							by {article.attributes.author?.data.attributes.name}
 						</span>
 					</div>

@@ -48,7 +48,7 @@ export default function ArticleCard({ className, article }: Props) {
 						{format(new Date(article.attributes.publishedAt), "PPP")}
 					</span>
 					<p className="mb-2">{content}</p>
-					<span className="text-sm mb-2">
+					<span className="text-sm mb-2 capitalize">
 						Category: {article.attributes.category?.data.attributes.name}
 					</span>
 				</div>
