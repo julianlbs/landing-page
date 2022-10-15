@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Zoom from "react-medium-image-zoom";
 
 interface CarouselProps extends React.ComponentProps<"div"> {
 	images: string[];
@@ -16,13 +17,17 @@ const Carousel: React.FC<CarouselProps> = ({ images, phone }) => {
 					id={`slide${i + 1}`}
 					className="carousel-item relative w-full"
 				>
-					<div style={{ height: "313px", width: "640px" }}>
-						<Image
-							src={image}
-							layout="fill"
-							alt="Portfolio image"
-							objectFit={phone ? "scale-down" : "contain"}
-						/>
+					<div className="mx-auto" style={{ height: "313px", width: "640px" }}>
+						<Zoom>
+							<Image
+								src={image}
+								height={313}
+								width={640}
+								// layout="fill"
+								alt="Portfolio image"
+								objectFit={phone ? "scale-down" : "contain"}
+							/>
+						</Zoom>
 					</div>
 					<div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
 						<a
