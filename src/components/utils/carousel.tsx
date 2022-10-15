@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect } from "react";
 import Zoom from "react-medium-image-zoom";
 
 interface CarouselProps extends React.ComponentProps<"div"> {
@@ -8,7 +9,15 @@ interface CarouselProps extends React.ComponentProps<"div"> {
 	phone?: boolean;
 }
 
+let windowWidth = 800;
+
 const Carousel: React.FC<CarouselProps> = ({ images, phone }) => {
+	useEffect(() => {
+		if (typeof window != undefined) {
+			windowWidth = window.innerWidth;
+		}
+	}, []);
+
 	return (
 		<div className="carousel w-full">
 			{images.map((image, i) => (
@@ -22,7 +31,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, phone }) => {
 							<Image
 								src={image}
 								height={313}
-								width={640}
+								width={windowWidth > 400 ? 311 : 640}
 								// layout="fill"
 								alt="Portfolio image"
 								objectFit={phone ? "scale-down" : "contain"}
