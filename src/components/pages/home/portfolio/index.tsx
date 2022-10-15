@@ -21,12 +21,12 @@ export default function Portfolio() {
 					<h2 className="text-center text-primary uppercase mb-12 ">
 						Portfolio
 					</h2>
-					<div className="flex flex-col w-full md:flex-row">
-						<div className="flex-[1] card bg-base-300 rounded-box md:mr-2">
+					<div className="flex flex-col w-full md:flex-row gap-4">
+						<div className="flex-[1] card bg-base-300 rounded-box">
 							<PortfolioList items={PORTFOLIO} onClick={handleSelectItem} />
 						</div>
 						<div className="flex-[3] card bg-base-300 rounded-box">
-							<div className="pt-4">
+							<div className="">
 								<Carousel
 									images={currentItem.images.paths}
 									phone={currentItem.images.phone}
