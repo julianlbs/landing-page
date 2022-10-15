@@ -39,9 +39,9 @@ export default function NavLinks() {
 					<a>Blog</a>
 				</Link>
 			</div>
-			<div id="search" className="mx-2">
+			{/* <div id="search" className="mx-2">
 				[algolia-search]
-			</div>
+			</div> */}
 		</>
 	);
 }
