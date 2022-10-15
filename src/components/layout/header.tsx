@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import NavLinks from "./navLinks";
 
 import { IoMdClose } from "react-icons/io";
+import Link from "next/link";
 
 export default function CustomHeader() {
 	const [width, setWidth] = useState(800);
@@ -25,7 +26,13 @@ export default function CustomHeader() {
 
 	return (
 		<header className="flex justify-between items-center py-4 px-8 shadow w-full bg-slate-50 dark:bg-gray-800 relative">
-			<h1 className="text-2xl pointer-events-none select-none">julian.dev</h1>
+			<Link href="/">
+				<a>
+					<h1 className="text-2xl pointer-events-none select-none">
+						julianlbs
+					</h1>
+				</a>
+			</Link>
 			<div className="flex items-center relative overflow-hidden">
 				{width > 640 ? (
 					<>

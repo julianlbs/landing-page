@@ -20,7 +20,7 @@ export default function NavLinks() {
 		<>
 			<div
 				id="theme"
-				className="hover:cursor-pointer transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg p-2 sm:hidden md:block md:mr-8 mb-8 pt-0 md:pt-0 md:mb-0"
+				className="hover:cursor-pointer transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg p-2 sm:hidden md:block md:mr-8 mb-8 md:mb-0"
 				onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
 			>
 				{theme === "dark" ? (

@@ -56,16 +56,12 @@ const Intro = () => {
 							<span className="font-bold text-red-400">boost</span> your
 							business.
 						</p>
-						<div className="mt-4 max-w-xl flex flex-wrap items-center justify-evenly">
-							<button className="btn btn-primary mb-4 md:mr-2 md:mb-0">
-								Hire me
-							</button>
-							<a href="#portfolio" className="">
-								<button className="btn btn-secondary mb-4 md:mr-2 md:mb-0">
-									Portfolio
-								</button>
+						<div className="mt-4 max-w-xl flex flex-wrap items-center justify-evenly gap-4">
+							<button className="btn btn-primary">Hire me</button>
+							<a href="#portfolio">
+								<button className="btn btn-secondary">Portfolio</button>
 							</a>
-							<button className="btn btn-secondary md:mr-2">About me</button>
+							<button className="btn btn-secondary">About me</button>
 						</div>
 					</div>
 				</div>
