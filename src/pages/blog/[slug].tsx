@@ -83,13 +83,15 @@ export default function Post({ article }: Props) {
 	);
 }
 
+type FetchSlugResponse = { data: { attributes: { slug: string } }[] };
+
 export const getStaticPaths: GetStaticPaths = async () => {
-	const articles: Articles = await fetchBlogAPI("/articles", {
+	const slugs: FetchSlugResponse = await fetchBlogAPI("/articles", {
 		fields: ["slug"],
 	});
 
 	return {
-		paths: articles.data.map((a) => ({ params: { slug: a.attributes.slug } })),
+		paths: slugs.data.map((s) => ({ params: { slug: s.attributes.slug } })),
 		fallback: false,
 	};
 };
@@ -105,6 +107,7 @@ export const getStaticProps = async ({
 		populate: ["image", "category", "author.picture"],
 	});
 	const article: Article = response.data[0];
+	console.log("response: ", article);
 
 	return { props: { article: article }, revalidate: 1 };
 };
