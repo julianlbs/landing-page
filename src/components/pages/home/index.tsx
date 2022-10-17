@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Contact from "./contact";
 import Portfolio from "./portfolio";
 import Showcase from "./showcase";
 
@@ -11,6 +12,7 @@ export default function HomePage() {
 			<main>
 				<Showcase />
 				<Portfolio />
+				<Contact />
 			</main>
 		</>
 	);
