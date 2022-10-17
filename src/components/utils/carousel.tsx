@@ -31,7 +31,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, phone }) => {
 							<Image
 								src={image}
 								height={313}
-								width={windowWidth > 400 ? 311 : 640}
+								width={windowWidth < 400 ? 311 : 640}
 								// layout="fill"
 								alt="Portfolio image"
 								objectFit={phone ? "scale-down" : "contain"}
