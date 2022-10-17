@@ -1,6 +1,7 @@
 import "../styles/globals.scss";
 import "../styles/imageZoom.css";
 import "../styles/burgerMenu.css";
+import "../styles/phoneNumberInput.css";
 
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
