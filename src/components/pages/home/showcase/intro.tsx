@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import AuthorPhoto from "../../../../../public/author-photo.jpg";
-import Contact from "../contact";
 import { Container } from "../../../utils";
 import SocialIcons from "./socialIcons";
-import Button from "../../../ui/button";
 
 const Intro = () => {
 	const [mounted, setMounted] = useState(false);
@@ -57,7 +55,9 @@ const Intro = () => {
 							business.
 						</p>
 						<div className="mt-4 max-w-xl flex flex-wrap items-center justify-evenly gap-4">
-							<button className="btn btn-primary">Hire me</button>
+							<a href="#contact">
+								<button className="btn btn-primary">Contact</button>
+							</a>
 							<a href="#portfolio">
 								<button className="btn btn-secondary">Portfolio</button>
 							</a>
